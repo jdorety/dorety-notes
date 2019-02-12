@@ -6,3 +6,13 @@
 .title-input {
   margin: 15px 0;
 }
+
+.add {
+  padding: 2%;
+}
+
+.submit-note {
+  align-self: flex-start;
+  width: 20%;
+  margin-left: 0;
+}
