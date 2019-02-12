@@ -1,9 +1,10 @@
 import React from "react";
+import "../styles/ToolBar.css";
 
 const ToolBar = () => {
   return (
     <nav className="toolbar">
-      <h1>Lambda Notes</h1>
+      <h1 id="nav-logo">Lambda Notes</h1>
 
       <button>PlaceHolder</button>
       <button>PlaceHolder</button>
