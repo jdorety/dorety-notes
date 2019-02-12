@@ -22,21 +22,25 @@ class AddNoteForm extends Component {
         <h2 className="section-header">Create New Note</h2>
         <form className="add-note-form">
           <input
-            className="title-input"
+            className="add title-input"
             type="text"
             value={this.state.title}
             name="title"
             placeholder="Note Title"
             onChange={this.changeHandler}
           />
-          <input
+          <textarea
+            className="add text-input"
+            rows="20"
             type="text"
             value={this.state.textBody}
             name="textBody"
             placeholder="Note Content"
             onChange={this.changeHandler}
           />
-          <button type="submit">Save</button>
+          <button className="submit-note" type="submit">
+            Save
+          </button>
         </form>
       </div>
     );
