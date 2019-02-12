@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 
 import AllNotesList from "./components/AllNotesList";
 import ToolBar from "./components/ToolBar";
+import AddNoteForm from "./components/AddNoteForm";
 
 import axios from "axios";
 
@@ -40,6 +41,7 @@ class App extends Component {
           exact
           render={props => <AllNotesList notes={this.state.notes} />}
         />
+        <Route path="/addnote" component={AddNoteForm} />
       </div>
     );
   }

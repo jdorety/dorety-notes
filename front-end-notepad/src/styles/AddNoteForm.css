@@ -1,0 +1,8 @@
+.add-note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-input {
+  margin: 15px 0;
+}
