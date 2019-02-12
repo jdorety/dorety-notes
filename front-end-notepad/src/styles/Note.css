@@ -1,0 +1,22 @@
+.note-thumb {
+  width: 25%;
+  border: 1px solid #000000;
+  padding: 0 1%;
+  margin: 15px 2%;
+  background-color: #fefefe;
+}
+
+.thumb-contents {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.note-header {
+  font-size: 1.8rem;
+  border-bottom: 1px solid #bbbabb;
+  padding-bottom: 2px;
+}
+
+.note-thumb p {
+  font-size: 1.6rem;
+}
