@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import AllNotesList from "./components/AllNotesList";
 import axios from "axios";
 
 import "./App.css";
@@ -30,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Lambda Notes</h1>
+        <Route render={props => <AllNotesList notes={this.state.notes} />} />
       </div>
     );
   }
