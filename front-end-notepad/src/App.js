@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
+
 import AllNotesList from "./components/AllNotesList";
+import ToolBar from "./components/ToolBar";
+
 import axios from "axios";
 
 import "./App.css";
@@ -31,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Lambda Notes</h1>
+        <Route path="/" component={ToolBar} />
         <Route
           path="/"
           exact
