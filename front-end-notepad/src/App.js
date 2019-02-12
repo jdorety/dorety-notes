@@ -32,7 +32,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Lambda Notes</h1>
-        <Route render={props => <AllNotesList notes={this.state.notes} />} />
+        <Route
+          path="/"
+          exact
+          render={props => <AllNotesList notes={this.state.notes} />}
+        />
       </div>
     );
   }
