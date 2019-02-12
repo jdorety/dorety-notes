@@ -9,7 +9,7 @@ const AllNotesList = props => {
       <h2 className="section-header">Your Notes:</h2>
       <div className="list-wrapper">
         {props.notes.map(note => {
-          return <Note {...note} key={note._id} />;
+          return <Note {...note} key={note._id} {...props} />;
         })}
       </div>
     </div>

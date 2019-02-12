@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import AllNotesList from "./components/AllNotesList";
 import ToolBar from "./components/ToolBar";
 import AddNoteForm from "./components/AddNoteForm";
+import Note from "./components/Note";
 
 import axios from "axios";
 
@@ -39,9 +40,14 @@ class App extends Component {
         <Route
           path="/"
           exact
-          render={props => <AllNotesList notes={this.state.notes} />}
+          render={props => <AllNotesList notes={this.state.notes} {...props} />}
         />
-        <Route path="/addnote" component={AddNoteForm} />
+        <Route
+          path="/notes/:id"
+          exact
+          render={props => <Note {...props} notes={this.state.notes} />}
+        />
+        <Route path="/addnote" exact component={AddNoteForm} />
       </div>
     );
   }
