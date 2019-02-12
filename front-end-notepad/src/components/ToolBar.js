@@ -1,12 +1,14 @@
 import React from "react";
+import AddNoteButton from "./AddNoteButton";
+
 import "../styles/ToolBar.css";
 
-const ToolBar = () => {
+const ToolBar = props => {
   return (
     <nav className="toolbar">
       <h1 id="nav-logo">Lambda Notes</h1>
 
-      <button>PlaceHolder</button>
+      <AddNoteButton history={props.history} />
       <button>PlaceHolder</button>
     </nav>
   );
