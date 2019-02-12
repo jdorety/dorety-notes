@@ -1,5 +1,6 @@
 import React from "react";
 import AddNoteButton from "./AddNoteButton";
+import HomeButton from "./HomeButton";
 
 import "../styles/ToolBar.css";
 
@@ -9,7 +10,7 @@ const ToolBar = props => {
       <h1 id="nav-logo">Lambda Notes</h1>
 
       <AddNoteButton history={props.history} />
-      <button>PlaceHolder</button>
+      <HomeButton history={props.history} />
     </nav>
   );
 };
