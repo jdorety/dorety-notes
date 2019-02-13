@@ -4,7 +4,7 @@ import { Route } from "react-router-dom";
 import AllNotesList from "./components/AllNotesList";
 import ToolBar from "./components/ToolBar";
 import AddNoteForm from "./components/AddNoteForm";
-import NoteThumb from "./components/NoteThumb";
+import ViewNote from "./components/ViewNote";
 
 import axios from "axios";
 
@@ -33,6 +33,10 @@ class App extends Component {
     this.getData(`https://fe-notes.herokuapp.com/note/get/all`);
   }
 
+  componentDidUpdate() {
+    this.getData(`https://fe-notes.herokuapp.com/note/get/all`);
+  }
+
   render() {
     return (
       <div className="App">
@@ -45,7 +49,7 @@ class App extends Component {
         <Route
           path="/notes/:id"
           exact
-          render={props => <NoteThumb {...props} notes={this.state.notes} />}
+          render={props => <ViewNote {...props} notes={this.state.notes} />}
         />
         <Route
           path="/addnote"

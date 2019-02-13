@@ -28,7 +28,6 @@ class AddNoteForm extends Component {
     e.preventDefault();
     this.addNote(`https://fe-notes.herokuapp.com/note/create`, this.state);
     this.props.history.push("/");
-    this.props.refresh(`https://fe-notes.herokuapp.com/note/get/all`);
   };
 
   render() {
