@@ -5,7 +5,11 @@ const AddNoteButton = props => {
     props.history.push("/addnote");
   }
 
-  return <button onClick={clickHandler}>+ Create Note</button>;
+  return (
+    <button className="tool" onClick={clickHandler}>
+      + Create Note
+    </button>
+  );
 };
 
 export default AddNoteButton;

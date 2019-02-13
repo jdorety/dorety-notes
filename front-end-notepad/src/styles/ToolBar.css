@@ -1,11 +1,23 @@
 nav {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
   width: 20%;
   padding: 10px 2%;
   background-color: #d2d1d2;
   border: 1px solid #bbbabb;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 140px;
+  width: 13%;
+}
+
+.tool {
+  margin-left: 0;
 }
 
 #nav-logo {

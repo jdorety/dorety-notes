@@ -8,9 +8,10 @@ const ToolBar = props => {
   return (
     <nav className="toolbar">
       <h1 id="nav-logo">Lambda Notes</h1>
-
-      <AddNoteButton history={props.history} />
-      <HomeButton history={props.history} />
+      <div className="button-container">
+        <AddNoteButton history={props.history} />
+        <HomeButton history={props.history} />
+      </div>
     </nav>
   );
 };

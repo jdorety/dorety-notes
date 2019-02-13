@@ -5,7 +5,11 @@ const HomeButton = props => {
     props.history.push("/");
   }
 
-  return <button onClick={clickHandler}>View Your Notes</button>;
+  return (
+    <button className="tool" onClick={clickHandler}>
+      View Your Notes
+    </button>
+  );
 };
 
 export default HomeButton;
