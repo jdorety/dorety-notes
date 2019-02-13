@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Note.css";
 
-const Note = props => {
+const NoteThumb = props => {
   function clickHandler(e) {
     props.history.push(`/notes/${props._id}`);
   }
@@ -16,4 +16,4 @@ const Note = props => {
   );
 };
 
-export default Note;
+export default NoteThumb;

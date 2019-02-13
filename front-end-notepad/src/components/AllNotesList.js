@@ -1,5 +1,5 @@
 import React from "react";
-import Note from "./Note";
+import NoteThumb from "./NoteThumb";
 
 import "../styles/AllNotesList.css";
 
@@ -9,7 +9,7 @@ const AllNotesList = props => {
       <h2 className="section-header">Your Notes:</h2>
       <div className="list-wrapper">
         {props.notes.map(note => {
-          return <Note {...note} key={note._id} {...props} />;
+          return <NoteThumb {...note} key={note._id} {...props} />;
         })}
       </div>
     </div>
