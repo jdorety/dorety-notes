@@ -7,6 +7,7 @@ const DeleteModal = props => {
       .delete(`https://fe-notes.herokuapp.com/note/delete/${props.id}`)
       .then(response => console.log(response))
       .catch(err => console.log(err));
+    props.toggle();
     props.history.push("/");
   }
 
