@@ -10,11 +10,11 @@ nav {
 }
 
 .button-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   position: fixed;
   top: 140px;
-  width: 13%;
+  width: 13%; */
 }
 
 .tool {
