@@ -28,3 +28,8 @@ button {
   width: 80%;
   padding: 5%;
 }
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+}

@@ -6,6 +6,7 @@ import AllNotesList from "./components/AllNotesList";
 import ToolBar from "./components/ToolBar";
 import AddNoteForm from "./components/AddNoteForm";
 import ViewNote from "./components/ViewNote";
+import EditForm from "./components/EditForm";
 
 import "./App.css";
 
@@ -45,12 +46,9 @@ class App extends Component {
           exact
           render={props => <AllNotesList notes={this.state.notes} {...props} />}
         />
-        <Route
-          path="/notes/:id"
-          exact
-          render={props => <ViewNote {...props} notes={this.state.notes} />}
-        />
+        <Route path="/notes/:id" exact component={ViewNote} />
         <Route path="/addnote" exact component={AddNoteForm} />
+        <Route path="/notes/:id/edit" exact component={EditForm} />
       </div>
     );
   }

@@ -13,11 +13,19 @@ class ViewNote extends Component {
     };
   }
 
-  componentDidMount() {
+  getNote = () => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${this.state.noteID}`)
       .then(response => this.setState({ note: response.data }))
       .catch(err => console.log(err));
+  };
+
+  componentDidMount() {
+    this.getNote();
+  }
+
+  componentDidUpdate() {
+    this.getNote();
   }
 
   toggleDelete = () => {
@@ -26,12 +34,18 @@ class ViewNote extends Component {
     });
   };
 
+  editHandler = () => {
+    this.props.history.push(`/notes/${this.state.noteID}/edit`);
+  };
+
   render() {
     if (!this.state.showDelete) {
       return (
         <div className="main-view">
           <div className="modify">
-            <a href="#">edit</a>
+            <button className="edit-buttons" onClick={this.editHandler}>
+              edit
+            </button>
             <button className="edit-buttons" onClick={this.toggleDelete}>
               delete
             </button>

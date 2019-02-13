@@ -1,14 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../styles/AddNoteForm.css";
 
-class AddNoteForm extends Component {
-  constructor() {
-    super();
+class EditForm extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      title: "",
-      textBody: ""
+      __v: null,
+      _id: null,
+      textBody: "",
+      title: ""
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get(
+        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
+      )
+      .then(response => this.setState({ ...response.data }))
+      .catch(err => console.log(err));
+    console.log(this.state);
   }
 
   changeHandler = e => {
@@ -17,26 +28,27 @@ class AddNoteForm extends Component {
     });
   };
 
-  addNote = (URL, note) => {
-    axios
-      .post(URL, note)
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
-  };
-
   submitHandler = e => {
     e.preventDefault();
-    this.addNote(`https://fe-notes.herokuapp.com/note/create`, this.state);
-    this.props.history.push("/");
+    axios
+      .put(
+        `https://fe-notes.herokuapp.com/note/edit/${
+          this.props.match.params.id
+        }`,
+        this.state
+      )
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+    this.props.history.push(`/notes/${this.state._id}`);
   };
 
   render() {
     return (
       <div className="main-view">
-        <h2 className="section-header">Create New Note</h2>
+        <h2 className="section-header">Edit Note:</h2>
         <form className="note-form" onSubmit={this.submitHandler}>
           <input
-            className="add title-input"
+            className="edit title-input"
             type="text"
             value={this.state.title}
             name="title"
@@ -44,7 +56,7 @@ class AddNoteForm extends Component {
             onChange={this.changeHandler}
           />
           <textarea
-            className="add text-input"
+            className="edit text-input"
             rows="20"
             type="text"
             value={this.state.textBody}
@@ -61,4 +73,4 @@ class AddNoteForm extends Component {
   }
 }
 
-export default AddNoteForm;
+export default EditForm;
