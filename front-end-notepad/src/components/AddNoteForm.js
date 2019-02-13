@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "../styles/AddNoteForm.css";
 
 class AddNoteForm extends Component {
@@ -16,11 +17,25 @@ class AddNoteForm extends Component {
     });
   };
 
+  addNote = (URL, note) => {
+    axios
+      .post(URL, note)
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  };
+
+  submitHandler = e => {
+    e.preventDefault();
+    this.addNote(`https://fe-notes.herokuapp.com/note/create`, this.state);
+    this.props.history.push("/");
+    this.props.refresh(`https://fe-notes.herokuapp.com/note/get/all`);
+  };
+
   render() {
     return (
       <div className="main-view">
         <h2 className="section-header">Create New Note</h2>
-        <form className="add-note-form">
+        <form className="add-note-form" onSubmit={this.submitHandler}>
           <input
             className="add title-input"
             type="text"
