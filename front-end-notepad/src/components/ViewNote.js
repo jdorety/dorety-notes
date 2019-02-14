@@ -9,14 +9,15 @@ class ViewNote extends Component {
     this.state = {
       note: {},
       noteID: props.match.params.id,
-      showDelete: false
+      showDelete: false,
+      loading: true
     };
   }
 
   getNote = () => {
     axios
       .get(`https://fe-notes.herokuapp.com/note/get/${this.state.noteID}`)
-      .then(response => this.setState({ note: response.data }))
+      .then(response => this.setState({ note: response.data, loading: false }))
       .catch(err => console.log(err));
   };
 
@@ -50,6 +51,8 @@ class ViewNote extends Component {
               delete
             </button>
           </div>
+          {this.state.loading && <h2>Loading</h2>}
+
           <h2 className="section-header">{this.state.note.title}</h2>
           <p>{this.state.note.textBody}</p>
         </div>
