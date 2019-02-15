@@ -1,0 +1,21 @@
+.alert {
+  border: 1px solid #bbbabb;
+  padding: 1%;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.yes-delete {
+  background-color: #ca001a;
+  width: 48%;
+}
+
+.no-delete {
+  width: 48%;
+}

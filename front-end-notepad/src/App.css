@@ -33,3 +33,9 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+.alert {
+  position: fixed;
+  top: 45%;
+  left: 45%;
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import "../styles/DeleteModal.css";
+
 const DeleteModal = props => {
   function deleteNote() {
     axios
@@ -16,10 +18,10 @@ const DeleteModal = props => {
     <div className="alert">
       <h3>Are you sure you want to delete this?</h3>
       <div className="delete-buttons">
-        <button name="yes" onClick={deleteNote}>
+        <button className="yes-delete" onClick={deleteNote}>
           Delete
         </button>
-        <button name="no" onClick={props.toggle}>
+        <button className="no-delete" onClick={props.toggle}>
           No
         </button>
       </div>
