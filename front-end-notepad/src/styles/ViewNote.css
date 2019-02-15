@@ -1,0 +1,18 @@
+.header-wrapper {
+}
+
+.modify {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-buttons {
+  background-color: inherit;
+  text-decoration: underline;
+  color: #5b5e61;
+  border-style: none;
+}
+
+.note-body {
+  font-size: 1.6rem;
+}

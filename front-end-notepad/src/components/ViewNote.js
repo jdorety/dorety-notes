@@ -3,6 +3,8 @@ import axios from "axios";
 
 import DeleteModal from "./DeleteModal";
 
+import "../styles/ViewNote.css";
+
 class ViewNote extends Component {
   constructor(props) {
     super(props);
@@ -50,18 +52,20 @@ class ViewNote extends Component {
           />
         )}
 
-        <div className="modify">
-          <button className="edit-buttons" onClick={this.editHandler}>
-            edit
-          </button>
-          <button className="edit-buttons" onClick={this.toggleDelete}>
-            delete
-          </button>
-        </div>
         {this.state.loading && <h2>Loading</h2>}
 
-        <h2 className="section-header">{this.state.note.title}</h2>
-        <p>{this.state.note.textBody}</p>
+        <div className="header-wrapper">
+          <div className="modify">
+            <button className="edit-buttons" onClick={this.editHandler}>
+              edit
+            </button>
+            <button className="edit-buttons" onClick={this.toggleDelete}>
+              delete
+            </button>
+          </div>
+          <h2 className="section-header">{this.state.note.title}</h2>
+        </div>
+        <p className="note-body">{this.state.note.textBody}</p>
       </div>
     );
   }
