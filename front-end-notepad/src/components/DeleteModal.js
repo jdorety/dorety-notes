@@ -5,10 +5,11 @@ const DeleteModal = props => {
   function deleteNote() {
     axios
       .delete(`https://fe-notes.herokuapp.com/note/delete/${props.id}`)
-      .then(response => console.log(response))
+      .then(response => {
+        props.toggle();
+        props.history.push("/");
+      })
       .catch(err => console.log(err));
-    props.toggle();
-    props.history.push("/");
   }
 
   return (

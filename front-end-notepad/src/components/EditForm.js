@@ -37,9 +37,11 @@ class EditForm extends Component {
         }`,
         this.state
       )
-      .then(response => console.log(response))
+      .then(response => {
+        this.props.history.push(`/notes/${this.state._id}`);
+      })
+
       .catch(err => console.log(err));
-    this.props.history.push(`/notes/${this.state._id}`);
   };
 
   render() {

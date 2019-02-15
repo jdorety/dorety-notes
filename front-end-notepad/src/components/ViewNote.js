@@ -25,9 +25,9 @@ class ViewNote extends Component {
     this.getNote();
   }
 
-  componentDidUpdate() {
-    this.getNote();
-  }
+  // componentDidUpdate() {
+  //   this.getNote();
+  // }
 
   toggleDelete = () => {
     this.setState({
