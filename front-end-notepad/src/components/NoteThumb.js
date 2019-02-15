@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Note.css";
+import "../styles/NoteThumb.css";
 
 const NoteThumb = props => {
   function clickHandler(e) {
