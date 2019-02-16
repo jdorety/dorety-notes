@@ -6,11 +6,12 @@
 }
 
 .note-wrapper {
-  padding: 0 1%;
+  padding: 0 2%;
 }
 
 .note-title {
   font-size: 1.8rem;
+  color: #505254;
 }
 
 .edit-buttons {
@@ -22,4 +23,5 @@
 
 .note-body {
   font-size: 1.6rem;
+  margin-left: 2%;
 }

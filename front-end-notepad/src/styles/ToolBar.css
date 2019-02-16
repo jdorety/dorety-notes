@@ -1,24 +1,24 @@
+nav {
+  position: fixed;
+  max-width: 180px;
+  width: 95%;
+}
+
 .toolbar {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   height: auto;
-  width: 20%;
+  max-width: 180px;
+  width: 100%;
   padding: 10px 2%;
   background-color: #d2d1d2;
   border: 1px solid #bbbabb;
 }
 
-.button-container {
-  /* display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 140px;
-  width: 13%; */
-}
-
 .tool {
-  margin-left: 0;
+  max-width: 180px;
+  width: 95%;
 }
 
 #nav-logo {

@@ -6,11 +6,13 @@ import "../styles/ToolBar.css";
 
 const ToolBar = props => {
   return (
-    <nav className="toolbar">
-      <h1 id="nav-logo">Lambda Notes</h1>
-      <AddNoteButton history={props.history} />
-      <HomeButton history={props.history} />
-    </nav>
+    <header className="toolbar">
+      <nav>
+        <h1 id="nav-logo">Lambda Notes</h1>
+        <AddNoteButton history={props.history} />
+        <HomeButton history={props.history} />
+      </nav>
+    </header>
   );
 };
 
