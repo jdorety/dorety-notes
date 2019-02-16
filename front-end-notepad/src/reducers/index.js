@@ -1,9 +1,19 @@
-import { LOADING_LIST, LIST_SUCCESS, LIST_FAILURE } from "../actions";
+import {
+  LOADING_LIST,
+  LIST_SUCCESS,
+  LIST_FAILURE,
+  LOADING_NOTE,
+  NOTE_SUCCESS,
+  NOTE_FAILURE
+} from "../actions";
 
 const initialState = {
   notes: [],
+  noteDisplayed: null,
   loadingList: false,
-  listError: ""
+  listError: "",
+  loadingNote: false,
+  noteError: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,6 +28,26 @@ export default function reducer(state = initialState, action) {
         loadingList: false,
         notes: [],
         listError: action.error
+      };
+    case LOADING_NOTE:
+      return {
+        ...state,
+        loadingNote: true
+      };
+
+    case NOTE_SUCCESS:
+      return {
+        ...state,
+        loadingNote: false,
+        noteError: "",
+        noteDisplayed: action.note
+      };
+
+    case NOTE_FAILURE:
+      return {
+        ...state,
+        loadingNote: false,
+        noteError: action.error
       };
     default:
       return state;

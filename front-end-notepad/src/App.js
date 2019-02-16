@@ -11,25 +11,6 @@ import EditForm from "./components/EditForm";
 import "./App.css";
 
 const App = () => {
-  // getData = URL => {
-  //   axios
-  //     .get(URL)
-  //     .then(response =>
-  //       this.setState({
-  //         notes: response.data
-  //       })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // componentDidMount() {
-  //   this.getData(`https://fe-notes.herokuapp.com/note/get/all`);
-  // }
-
-  // componentDidUpdate() {
-  //   this.getData(`https://fe-notes.herokuapp.com/note/get/all`);
-  // }
-
   return (
     <div className="App">
       <Route path="/" component={ToolBar} />
