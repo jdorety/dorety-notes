@@ -1,6 +1,3 @@
-.header-wrapper {
-}
-
 .modify {
   text-align: right;
 }
@@ -19,6 +16,7 @@
   text-decoration: underline;
   color: #5b5e61;
   border-style: none;
+  cursor: pointer;
 }
 
 .note-body {

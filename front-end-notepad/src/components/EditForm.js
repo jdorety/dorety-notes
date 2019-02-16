@@ -9,8 +9,8 @@ class EditForm extends Component {
     this.state = {
       __v: null,
       _id: null,
-      textBody: "Loading...",
-      title: "Loading..."
+      textBody: "...",
+      title: "..."
     };
   }
 
