@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import "../styles/EditForm.css";
+
 class EditForm extends Component {
   constructor(props) {
     super(props);

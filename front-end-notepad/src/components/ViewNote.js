@@ -44,28 +44,30 @@ class ViewNote extends Component {
   render() {
     return (
       <div className="main-view">
-        {this.state.showDelete && (
-          <DeleteModal
-            id={this.state.noteID}
-            history={this.props.history}
-            toggle={this.toggleDelete}
-          />
-        )}
+        <div className="note-wrapper">
+          {this.state.showDelete && (
+            <DeleteModal
+              id={this.state.noteID}
+              history={this.props.history}
+              toggle={this.toggleDelete}
+            />
+          )}
 
-        {this.state.loading && <h2>Loading</h2>}
+          {this.state.loading && <h2>Loading</h2>}
 
-        <div className="header-wrapper">
-          <div className="modify">
-            <button className="edit-buttons" onClick={this.editHandler}>
-              edit
-            </button>
-            <button className="edit-buttons" onClick={this.toggleDelete}>
-              delete
-            </button>
+          <div className="header-wrapper">
+            <div className="modify">
+              <button className="edit-buttons" onClick={this.editHandler}>
+                edit
+              </button>
+              <button className="edit-buttons" onClick={this.toggleDelete}>
+                delete
+              </button>
+            </div>
+            <h2 className="note-title">{this.state.note.title}</h2>
           </div>
-          <h2 className="section-header">{this.state.note.title}</h2>
+          <p className="note-body">{this.state.note.textBody}</p>
         </div>
-        <p className="note-body">{this.state.note.textBody}</p>
       </div>
     );
   }

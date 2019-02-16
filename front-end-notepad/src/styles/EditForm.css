@@ -1,0 +1,13 @@
+.note-form {
+  margin: 5%;
+  width: 90%;
+}
+
+.edit {
+  padding: 2%;
+  font-size: 1.6rem;
+}
+
+.text-input {
+  font-family: Roboto, sans-serif;
+}

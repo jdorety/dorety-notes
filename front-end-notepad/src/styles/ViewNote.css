@@ -2,8 +2,15 @@
 }
 
 .modify {
-  display: flex;
-  justify-content: flex-end;
+  text-align: right;
+}
+
+.note-wrapper {
+  padding: 0 1%;
+}
+
+.note-title {
+  font-size: 1.8rem;
 }
 
 .edit-buttons {
