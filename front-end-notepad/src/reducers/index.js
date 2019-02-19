@@ -4,7 +4,10 @@ import {
   LIST_FAILURE,
   LOADING_NOTE,
   NOTE_SUCCESS,
-  NOTE_FAILURE
+  NOTE_FAILURE,
+  ADD_FAILURE,
+  ADD_LOADING,
+  ADD_SUCCESS
 } from "../actions";
 
 const initialState = {
@@ -13,7 +16,9 @@ const initialState = {
   loadingList: false,
   listError: "",
   loadingNote: false,
-  noteError: ""
+  noteError: "",
+  newNoteID: null,
+  newNoteError: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -34,7 +39,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         loadingNote: true
       };
-
     case NOTE_SUCCESS:
       return {
         ...state,
@@ -42,12 +46,27 @@ export default function reducer(state = initialState, action) {
         noteError: "",
         noteDisplayed: action.note
       };
-
     case NOTE_FAILURE:
       return {
         ...state,
         loadingNote: false,
         noteError: action.error
+      };
+    case ADD_LOADING:
+      return {
+        ...state,
+        loadingList: true
+      };
+    case ADD_SUCCESS:
+      return {
+        ...state,
+        newNoteID: action.id
+      };
+    case ADD_FAILURE:
+      return {
+        ...state,
+        loadingList: false,
+        newNoteError: action.error
       };
     default:
       return state;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { addNote } from "../actions";
 import "../styles/AddNoteForm.css";
 
 class AddNoteForm extends Component {
@@ -17,16 +18,9 @@ class AddNoteForm extends Component {
     });
   };
 
-  addNote = (URL, note) => {
-    axios
-      .post(URL, note)
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
-  };
-
   submitHandler = e => {
     e.preventDefault();
-    this.addNote(`https://fe-notes.herokuapp.com/note/create`, this.state);
+    this.props.addNote(this.state);
     this.props.history.push("/");
   };
 
@@ -61,4 +55,7 @@ class AddNoteForm extends Component {
   }
 }
 
-export default AddNoteForm;
+export default connect(
+  null,
+  { addNote }
+)(AddNoteForm);
