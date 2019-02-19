@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { getNote } from "../actions";
 
 import DeleteModal from "./DeleteModal";
 
@@ -9,22 +10,20 @@ class ViewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: {},
       noteID: props.match.params.id,
-      showDelete: false,
-      loading: true
+      showDelete: false
     };
   }
 
-  getNote = () => {
-    axios
-      .get(`https://fe-notes.herokuapp.com/note/get/${this.state.noteID}`)
-      .then(response => this.setState({ note: response.data, loading: false }))
-      .catch(err => console.log(err));
-  };
+  // getNote = () => {
+  //   axios
+  //     .get(`https://fe-notes.herokuapp.com/note/get/${this.state.noteID}`)
+  //     .then(response => this.setState({ note: response.data, loading: false }))
+  //     .catch(err => console.log(err));
+  // };
 
   componentDidMount() {
-    this.getNote();
+    this.props.getNote(this.state.noteID);
   }
 
   // componentDidUpdate() {
@@ -64,13 +63,23 @@ class ViewNote extends Component {
                 delete
               </button>
             </div>
-            <h2 className="note-title">{this.state.note.title}</h2>
+            <h2 className="note-title">{this.props.note.title}</h2>
           </div>
-          <p className="note-body">{this.state.note.textBody}</p>
+          <p className="note-body">{this.props.note.textBody}</p>
         </div>
       </div>
     );
   }
 }
 
-export default ViewNote;
+const mstp = state => {
+  return {
+    note: state.noteDisplayed,
+    loading: state.loadingNote
+  };
+};
+
+export default connect(
+  mstp,
+  { getNote }
+)(ViewNote);

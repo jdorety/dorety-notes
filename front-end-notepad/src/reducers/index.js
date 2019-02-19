@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   notes: [],
-  noteDisplayed: null,
+  noteDisplayed: {},
   loadingList: false,
   listError: "",
   loadingNote: false,
