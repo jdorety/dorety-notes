@@ -9,6 +9,9 @@ export const NOTE_FAILURE = "NOTE_FAILURE";
 export const ADD_LOADING = "ADD_LOADING";
 export const ADD_SUCCESS = "ADD_SUCCESS";
 export const ADD_FAILURE = "ADD_FAILURE";
+export const WAIT_ON_DELETE = "WAIT_ON_DELETE";
+export const DELETE_SUCCESS = "DELETE_SUCCESS";
+export const DELETE_FAILURE = "DELETE_FAILURE";
 
 export const getList = () => dispatch => {
   dispatch({ type: LOADING_LIST });
@@ -38,4 +41,18 @@ export const addNote = note => dispatch => {
       dispatch({ type: ADD_SUCCESS, id: response.data.success });
     })
     .catch(err => dispatch({ type: ADD_FAILURE, error: err }));
+};
+
+export const deleteNote = id => dispatch => {
+  dispatch({ type: WAIT_ON_DELETE });
+  axios
+    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log(response);
+      dispatch({ type: DELETE_SUCCESS });
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({ type: DELETE_FAILURE });
+    });
 };

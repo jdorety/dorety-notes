@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addNote } from "../actions";
+import { addNote, getList } from "../actions";
 import "../styles/AddNoteForm.css";
 
 class AddNoteForm extends Component {
@@ -22,6 +22,7 @@ class AddNoteForm extends Component {
     e.preventDefault();
     this.props.addNote(this.state);
     this.props.history.push("/");
+    this.props.getList();
   };
 
   render() {
@@ -57,5 +58,5 @@ class AddNoteForm extends Component {
 
 export default connect(
   null,
-  { addNote }
+  { addNote, getList }
 )(AddNoteForm);

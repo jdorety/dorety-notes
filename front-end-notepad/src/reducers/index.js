@@ -18,7 +18,8 @@ const initialState = {
   loadingNote: false,
   noteError: "",
   newNoteID: null,
-  newNoteError: ""
+  newNoteError: "",
+  deleteError: ""
 };
 
 export default function reducer(state = initialState, action) {

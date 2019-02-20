@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { getList } from "../actions";
 
 const HomeButton = props => {
   function clickHandler() {
@@ -12,4 +14,7 @@ const HomeButton = props => {
   );
 };
 
-export default HomeButton;
+export default connect(
+  null,
+  { getList }
+)(HomeButton);

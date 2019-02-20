@@ -1,17 +1,15 @@
 import React from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { deleteNote, getList } from "../actions";
 
 import "../styles/DeleteModal.css";
 
 const DeleteModal = props => {
   function deleteNote() {
-    axios
-      .delete(`https://fe-notes.herokuapp.com/note/delete/${props.id}`)
-      .then(response => {
-        props.toggle();
-        props.history.push("/");
-      })
-      .catch(err => console.log(err));
+    props.deleteNote(props.id);
+    props.getList();
+    props.toggle();
+    props.history.push("/");
   }
 
   return (
@@ -29,4 +27,7 @@ const DeleteModal = props => {
   );
 };
 
-export default DeleteModal;
+export default connect(
+  null,
+  { deleteNote, getList }
+)(DeleteModal);
