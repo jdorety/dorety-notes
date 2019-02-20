@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteNote, getList } from "../actions";
+import { deleteNote } from "../actions";
 
 import "../styles/DeleteModal.css";
 
 const DeleteModal = props => {
   function deleteNote() {
-    props.deleteNote(props.id);
-    props.getList();
+    props.deleteNote(props.id, props.history);
     props.toggle();
-    props.history.push("/");
   }
 
   return (
@@ -29,5 +27,5 @@ const DeleteModal = props => {
 
 export default connect(
   null,
-  { deleteNote, getList }
+  { deleteNote }
 )(DeleteModal);
