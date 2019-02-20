@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import axios from "axios";
+
+import { getNote, editNote } from "../actions";
 
 import "../styles/EditForm.css";
 
@@ -15,13 +18,15 @@ class EditForm extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get(
-        `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
-      )
-      .then(response => this.setState({ ...response.data }))
-      .catch(err => console.log(err));
-    console.log(this.state);
+    // axios
+    //   .get(
+    //     `https://fe-notes.herokuapp.com/note/get/${this.props.match.params.id}`
+    //   )
+    //   .then(response => this.setState({ ...response.data }))
+    //   .catch(err => console.log(err));
+    // console.log(this.state);
+    this.props.getNote(this.props.match.params.id);
+    this.setState({ ...this.props.note });
   }
 
   changeHandler = e => {
@@ -32,17 +37,7 @@ class EditForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    axios
-      .put(
-        `https://fe-notes.herokuapp.com/note/edit/${
-          this.props.match.params.id
-        }`,
-        this.state
-      )
-      .then(response => {
-        this.props.history.push(`/notes/${this.state._id}`);
-      })
-      .catch(err => console.log(err));
+    this.props.editNote(this.state._id, this.state, this.props.history);
   };
 
   render() {
@@ -76,4 +71,13 @@ class EditForm extends Component {
   }
 }
 
-export default EditForm;
+const mstp = state => {
+  return {
+    note: { ...state.noteDisplayed }
+  };
+};
+
+export default connect(
+  mstp,
+  { getNote, editNote }
+)(EditForm);

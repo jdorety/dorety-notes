@@ -20,8 +20,7 @@ class AddNoteForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.addNote(this.state);
-    this.props.history.push("/");
+    this.props.addNote(this.state, this.props.history);
     this.props.getList();
   };
 

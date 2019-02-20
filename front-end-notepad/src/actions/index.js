@@ -32,13 +32,14 @@ export const getNote = id => dispatch => {
     .catch(err => dispatch({ type: NOTE_FAILURE, error: err.toString() }));
 };
 
-export const addNote = note => dispatch => {
+export const addNote = (note, history) => dispatch => {
   dispatch({ type: ADD_LOADING });
   axios
     .post(`https://fe-notes.herokuapp.com/note/create`, note)
     .then(response => {
       console.log(response);
       dispatch({ type: ADD_SUCCESS, id: response.data.success });
+      history.push("/");
     })
     .catch(err => dispatch({ type: ADD_FAILURE, error: err }));
 };
@@ -56,4 +57,14 @@ export const deleteNote = (id, history) => dispatch => {
       console.log(err);
       dispatch({ type: DELETE_FAILURE, error: err });
     });
+};
+
+export const editNote = (id, note, history) => dispatch => {
+  axios
+    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .then(response => {
+      console.log("edit reducer", response);
+      history.push(`/notes/${response.data._id}`);
+    })
+    .catch(err => console.log(err));
 };
