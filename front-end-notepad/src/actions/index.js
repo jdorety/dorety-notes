@@ -43,16 +43,17 @@ export const addNote = note => dispatch => {
     .catch(err => dispatch({ type: ADD_FAILURE, error: err }));
 };
 
-export const deleteNote = id => dispatch => {
+export const deleteNote = (id, history) => dispatch => {
   dispatch({ type: WAIT_ON_DELETE });
   axios
     .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
     .then(response => {
       console.log(response);
       dispatch({ type: DELETE_SUCCESS });
+      history.push("/");
     })
     .catch(err => {
       console.log(err);
-      dispatch({ type: DELETE_FAILURE });
+      dispatch({ type: DELETE_FAILURE, error: err });
     });
 };
