@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getList } from "../actions";
+import { ReactComponent as Home } from "../icons/home.svg";
 
 const HomeButton = props => {
   function clickHandler() {
@@ -10,7 +11,8 @@ const HomeButton = props => {
 
   return (
     <button className="tool" onClick={clickHandler}>
-      View Your Notes
+      <span className="desk-tool"> View Your Notes</span>
+      <Home className="mobile-tool" />
     </button>
   );
 };

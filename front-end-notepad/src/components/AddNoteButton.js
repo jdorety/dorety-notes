@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { ReactComponent as Add } from "../icons/plus.svg";
 
 const AddNoteButton = props => {
   function clickHandler(e) {
@@ -7,7 +8,8 @@ const AddNoteButton = props => {
   }
   return (
     <button className="tool" onClick={clickHandler}>
-      + Create Note
+      <span className="desk-tool">Add Note +</span>
+      <Add className="mobile-tool" />
     </button>
   );
 };

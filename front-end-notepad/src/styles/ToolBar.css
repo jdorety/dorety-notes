@@ -5,8 +5,6 @@ nav {
 }
 
 .toolbar {
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   height: auto;
   max-width: 180px;
@@ -21,7 +19,43 @@ nav {
   width: 95%;
 }
 
+.desk-tool {
+  display: block;
+}
+
+.mobile-tool {
+  display: none;
+}
+
 #nav-logo {
   font-size: 3.2rem;
   color: #414142;
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    max-width: 600px;
+    min-height: 0;
+    position: fixed;
+  }
+
+  nav {
+    position: static;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+  }
+
+  .tool {
+    max-width: 290px;
+    width: 50%;
+  }
+
+  .desk-tool {
+    display: none;
+  }
+
+  .mobile-tool {
+    display: block;
+  }
 }
