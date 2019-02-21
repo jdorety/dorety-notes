@@ -7,7 +7,6 @@ const HomeButton = props => {
   function clickHandler() {
     props.history.push("/");
   }
-  console.log(props);
 
   return (
     <button className="tool" onClick={clickHandler}>
