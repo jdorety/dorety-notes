@@ -28,3 +28,9 @@
 .note-thumb p {
   font-size: 1.6rem;
 }
+
+@media (max-width: 600px) {
+  .note-thumb {
+    width: 40%;
+  }
+}

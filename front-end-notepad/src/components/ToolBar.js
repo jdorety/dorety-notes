@@ -10,8 +10,10 @@ const ToolBar = props => {
     <header className="toolbar">
       <nav>
         <h1 id="nav-logo">Lambda Notes</h1>
-        <AddNoteButton history={props.history} />
-        <HomeButton history={props.history} />
+        <div className="button-container">
+          <AddNoteButton history={props.history} />
+          <HomeButton history={props.history} />
+        </div>
       </nav>
     </header>
   );
