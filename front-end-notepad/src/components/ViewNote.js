@@ -75,9 +75,9 @@ class ViewNote extends Component {
 
 const mstp = state => {
   return {
-    note: state.noteDisplayed,
-    loading: state.loadingNote,
-    error: state.noteError
+    note: state.note.noteDisplayed,
+    loading: state.note.loadingNote,
+    error: state.note.noteError
   };
 };
 

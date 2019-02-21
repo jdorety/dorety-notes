@@ -73,7 +73,7 @@ class EditForm extends Component {
 
 const mstp = state => {
   return {
-    note: { ...state.noteDisplayed }
+    note: { ...state.note.noteDisplayed }
   };
 };
 

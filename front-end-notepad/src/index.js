@@ -13,7 +13,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 const store = createStore(reducer, applyMiddleware(thunk, logger));
-
+console.log(store.getState());
 ReactDOM.render(
   <Provider store={store}>
     <Router>

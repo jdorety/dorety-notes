@@ -29,8 +29,8 @@ class AllNotesList extends Component {
 
 const mst3k = state => {
   return {
-    notes: state.notes,
-    addingNote: state.addingNewNote
+    notes: state.list.notes,
+    addingNote: state.add.addingNewNote
   };
 };
 
