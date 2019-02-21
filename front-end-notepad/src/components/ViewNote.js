@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getNote } from "../actions";
 
@@ -78,6 +79,15 @@ const mstp = state => {
     loading: state.loadingNote,
     error: state.noteError
   };
+};
+
+ViewNote.propTypes = {
+  error: PropTypes.string,
+  getNote: PropTypes.func,
+  history: PropTypes.object,
+  loading: PropTypes.bool,
+  match: PropTypes.object,
+  note: PropTypes.object
 };
 
 export default connect(
