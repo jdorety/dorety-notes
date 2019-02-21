@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addNote, getList } from "../actions";
 import "../styles/AddNoteForm.css";
@@ -54,6 +55,14 @@ class AddNoteForm extends Component {
     );
   }
 }
+
+AddNoteForm.propTypes = {
+  addNote: PropTypes.func,
+  getList: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object
+};
 
 export default connect(
   null,
