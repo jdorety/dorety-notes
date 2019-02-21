@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteNote } from "../actions";
 
@@ -23,6 +24,13 @@ const DeleteModal = props => {
       </div>
     </div>
   );
+};
+
+DeleteModal.propTypes = {
+  deleteNote: PropTypes.func,
+  history: PropTypes.object,
+  id: PropTypes.string,
+  toggle: PropTypes.func
 };
 
 export default connect(
