@@ -20,6 +20,7 @@ const initialState = {
   listError: "",
   loadingNote: false,
   noteError: "",
+  addingNewNote: false,
   newNoteID: null,
   newNoteError: "",
   deleteError: "",
@@ -30,7 +31,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOADING_LIST:
-      return { ...state, loadingList: true };
+      return { ...state, loadingList: true, listError: "" };
     case LIST_SUCCESS:
       return { ...state, loadingList: false, notes: action.list };
     case LIST_FAILURE:
@@ -61,18 +62,19 @@ export default function reducer(state = initialState, action) {
     case ADD_LOADING:
       return {
         ...state,
-        loadingList: true
+        addingNewNote: true
       };
     case ADD_SUCCESS:
       return {
         ...state,
-        newNoteID: action.id
+        newNoteID: action.id,
+        addingNewNote: false
       };
     case ADD_FAILURE:
       return {
         ...state,
-        loadingList: false,
-        newNoteError: action.error
+        newNoteError: action.error,
+        addingNewNote: false
       };
     case WAIT_ON_DELETE:
       return {

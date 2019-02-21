@@ -16,6 +16,7 @@ class AllNotesList extends Component {
     return (
       <div className="main-view">
         <h2 className="section-header">Your Notes:</h2>
+        {this.props.addingNote && <h3>Adding Note</h3>}
         <div className="list-wrapper">
           {this.props.notes.map(note => {
             return <NoteThumb {...note} key={note._id} {...this.props} />;
@@ -28,7 +29,8 @@ class AllNotesList extends Component {
 
 const mst3k = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    addingNote: state.addingNewNote
   };
 };
 
