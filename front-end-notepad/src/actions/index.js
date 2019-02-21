@@ -18,7 +18,6 @@ export const getList = () => dispatch => {
   axios
     .get(`https://fe-notes.herokuapp.com/note/get/all`)
     .then(response => {
-      console.log(response);
       dispatch({ type: LIST_SUCCESS, list: response.data });
     })
     .catch(err => dispatch({ type: LIST_FAILURE, error: err.toString() }));

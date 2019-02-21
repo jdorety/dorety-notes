@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getList } from "../actions";
 
@@ -30,6 +30,14 @@ const mst3k = state => {
   return {
     notes: state.notes
   };
+};
+
+AllNotesList.propType = {
+  getList: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  notes: PropTypes.array
 };
 
 export default connect(
