@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import AddNoteButton from "./AddNoteButton";
 import HomeButton from "./HomeButton";
 
@@ -14,6 +15,12 @@ const ToolBar = props => {
       </nav>
     </header>
   );
+};
+
+ToolBar.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object
 };
 
 export default ToolBar;
