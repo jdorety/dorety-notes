@@ -51,8 +51,8 @@ class ViewNote extends Component {
               toggle={this.toggleDelete}
             />
           )}
-
-          {this.state.loading && <h2>Loading</h2>}
+          {this.props.error && <h2>{this.props.error}</h2>}
+          {this.props.loading && <h2>Loading</h2>}
 
           <div className="header-wrapper">
             <div className="modify">
@@ -75,7 +75,8 @@ class ViewNote extends Component {
 const mstp = state => {
   return {
     note: state.noteDisplayed,
-    loading: state.loadingNote
+    loading: state.loadingNote,
+    error: state.noteError
   };
 };
 

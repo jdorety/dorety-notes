@@ -63,7 +63,6 @@ export const editNote = (id, note, history) => dispatch => {
   axios
     .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
     .then(response => {
-      console.log("edit reducer", response);
       history.push(`/notes/${response.data._id}`);
     })
     .catch(err => console.log(err));
