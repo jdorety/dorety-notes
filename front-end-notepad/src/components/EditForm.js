@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { getNote, editNote } from "../actions";
@@ -74,6 +75,15 @@ const mstp = state => {
   return {
     note: { ...state.noteDisplayed }
   };
+};
+
+EditForm.propTypes = {
+  editNote: PropTypes.func,
+  getNote: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  note: PropTypes.object
 };
 
 export default connect(
