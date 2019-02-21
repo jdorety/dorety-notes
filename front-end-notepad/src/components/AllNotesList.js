@@ -32,7 +32,7 @@ const mst3k = state => {
   };
 };
 
-AllNotesList.propType = {
+AllNotesList.propTypes = {
   getList: PropTypes.func,
   history: PropTypes.object,
   location: PropTypes.object,
