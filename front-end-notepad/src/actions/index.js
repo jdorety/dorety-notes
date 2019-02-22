@@ -27,7 +27,12 @@ export const getNote = id => dispatch => {
   dispatch({ type: LOADING_NOTE });
   axios
     .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
-    .then(response => dispatch({ type: NOTE_SUCCESS, note: response.data }))
+    .then(response => {
+      console.log(response);
+      response.data.message
+        ? dispatch({ type: NOTE_FAILURE, error: response.data.message })
+        : dispatch({ type: NOTE_SUCCESS, note: response.data });
+    })
     .catch(err => dispatch({ type: NOTE_FAILURE, error: err.toString() }));
 };
 

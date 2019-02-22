@@ -24,7 +24,7 @@ export const noteReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingNote: false,
-        noteError: action.error
+        noteError: "Could not find note"
       };
     default:
       return state;
