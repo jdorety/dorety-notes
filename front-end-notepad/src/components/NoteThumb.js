@@ -4,8 +4,8 @@ import "../styles/NoteThumb.css";
 
 const NoteThumb = props => {
   const dispStr =
-    props.textBody.length > 75
-      ? props.textBody.slice(0, 74) + "..."
+    props.textBody.length > 55
+      ? props.textBody.slice(0, 54) + "..."
       : props.textBody;
 
   const dispTitle =
