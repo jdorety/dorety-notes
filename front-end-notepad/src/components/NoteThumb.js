@@ -3,16 +3,24 @@ import PropTypes from "prop-types";
 import "../styles/NoteThumb.css";
 
 const NoteThumb = props => {
+  const dispStr =
+    props.textBody.length > 75
+      ? props.textBody.slice(0, 74) + "..."
+      : props.textBody;
+
+  const dispTitle =
+    props.title.length > 35 ? props.title.slice(0, 34) + "..." : props.title;
+
   function clickHandler(e) {
     props.history.push(`/notes/${props._id}`);
   }
   return (
     <div className="note-thumb" onClick={clickHandler}>
       <div className="note-header-wrapper">
-        <h3 className="note-header">{props.title}</h3>
+        <h3 className="note-header">{dispTitle}</h3>
       </div>
       <div className="thumb-contents">
-        <p>{props.textBody}</p>
+        <p>{dispStr}</p>
       </div>
     </div>
   );
