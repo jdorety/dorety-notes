@@ -38,6 +38,7 @@ button {
 }
 
 .alert {
+  background-color: #fbfbfb;
   position: fixed;
   top: 45%;
   left: 45%;
@@ -73,5 +74,10 @@ button {
 
   .note-form {
     margin-bottom: 50px;
+  }
+
+  .alert {
+    top: 45%;
+    left: 1%;
   }
 }
