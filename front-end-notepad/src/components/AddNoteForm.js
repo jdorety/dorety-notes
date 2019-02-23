@@ -7,6 +7,7 @@ import "../styles/AddNoteForm.css";
 class AddNoteForm extends Component {
   constructor() {
     super();
+    //where input form content is saved
     this.state = {
       title: "",
       textBody: ""
@@ -21,7 +22,9 @@ class AddNoteForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
+    //calls addNote action creator, passes state and history prop
     this.props.addNote(this.state, this.props.history);
+    //refreshes main page to include added note
     this.props.getList();
   };
 
