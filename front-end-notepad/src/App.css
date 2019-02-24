@@ -1,0 +1,83 @@
+.App {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid #bbbabb;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #23b7bc;
+  padding: 10px 5%;
+  color: #fbfcfc;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-style: solid;
+  margin: 3%;
+}
+
+.section-header,
+.note-title {
+  font-size: 2.4rem;
+  color: #414142;
+  font-weight: bold;
+  margin-left: 2%;
+}
+
+.main-view {
+  background-color: #f1f0f1;
+  max-width: 720;
+  width: 100%;
+  /* padding: 5%; */
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.alert {
+  background-color: #fbfbfb;
+  position: fixed;
+  top: 45%;
+  left: 45%;
+}
+
+.edit,
+.add {
+  padding: 2%;
+  font-size: 1.6rem;
+  font-family: Roboto, sans-serif;
+}
+
+.text-input {
+}
+
+@media (max-width: 600px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-view {
+    max-width: 600px;
+    margin-top: 100px;
+  }
+
+  .submit-note {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  .note-form {
+    margin-bottom: 50px;
+  }
+
+  .alert {
+    top: 45%;
+    left: 1%;
+  }
+}

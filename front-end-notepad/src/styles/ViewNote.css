@@ -1,0 +1,25 @@
+.modify {
+  text-align: right;
+}
+
+.note-wrapper {
+  padding: 0 2%;
+}
+
+.note-title {
+  font-size: 1.8rem;
+  color: #505254;
+}
+
+.edit-buttons {
+  background-color: inherit;
+  text-decoration: underline;
+  color: #5b5e61;
+  border-style: none;
+  cursor: pointer;
+}
+
+.note-body {
+  font-size: 1.6rem;
+  margin-left: 2%;
+}

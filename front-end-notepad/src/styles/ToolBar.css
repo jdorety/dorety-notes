@@ -1,0 +1,77 @@
+nav {
+  position: fixed;
+  max-width: 180px;
+  width: 95%;
+}
+
+.toolbar {
+  min-height: 100vh;
+  height: auto;
+  max-width: 180px;
+  width: 100%;
+  padding: 10px 2%;
+  background-color: #d2d1d2;
+  border: 1px solid #bbbabb;
+}
+
+.tool {
+  max-width: 180px;
+  width: 95%;
+}
+
+.desk-tool {
+  display: block;
+}
+
+.mobile-tool {
+  display: none;
+}
+
+#nav-logo {
+  font-size: 3.2rem;
+  color: #414142;
+}
+
+@media (max-width: 600px) {
+  .toolbar {
+    max-width: 600px;
+    min-height: 0;
+    position: fixed;
+  }
+
+  nav {
+    position: static;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  #nav-logo {
+    font-size: 3rem;
+  }
+
+  .tool {
+    max-width: 35px;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .desk-tool {
+    display: none;
+  }
+
+  .mobile-tool {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
