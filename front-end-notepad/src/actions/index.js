@@ -1,4 +1,7 @@
 import axios from "axios";
+require("dotenv").config();
+
+const url = process.env.REACT_APP_API_URL || null;
 
 export const LOADING_LIST = "LOADING_LIST";
 export const LIST_SUCCESS = "LIST_SUCCESS";
@@ -16,7 +19,7 @@ export const DELETE_FAILURE = "DELETE_FAILURE";
 export const getList = () => dispatch => {
   dispatch({ type: LOADING_LIST });
   axios
-    .get(`https://fe-notes.herokuapp.com/note/get/all`)
+    .get(`${url}/get/all`)
     .then(response => {
       dispatch({ type: LIST_SUCCESS, list: response.data });
     })
@@ -26,7 +29,7 @@ export const getList = () => dispatch => {
 export const getNote = id => dispatch => {
   dispatch({ type: LOADING_NOTE });
   axios
-    .get(`https://fe-notes.herokuapp.com/note/get/${id}`)
+    .get(`${url}/get/${id}`)
     .then(response => {
       console.log(response);
       response.data.message
@@ -39,7 +42,7 @@ export const getNote = id => dispatch => {
 export const addNote = (note, history) => dispatch => {
   dispatch({ type: ADD_LOADING });
   axios
-    .post(`https://fe-notes.herokuapp.com/note/create`, note)
+    .post(`${url}/create`, note)
     .then(response => {
       console.log(response);
       dispatch({ type: ADD_SUCCESS, id: response.data.success });
@@ -51,7 +54,7 @@ export const addNote = (note, history) => dispatch => {
 export const deleteNote = (id, history) => dispatch => {
   dispatch({ type: WAIT_ON_DELETE });
   axios
-    .delete(`https://fe-notes.herokuapp.com/note/delete/${id}`)
+    .delete(`${url}/delete/${id}`)
     .then(response => {
       console.log(response);
       dispatch({ type: DELETE_SUCCESS });
@@ -65,7 +68,7 @@ export const deleteNote = (id, history) => dispatch => {
 
 export const editNote = (id, note, history) => dispatch => {
   axios
-    .put(`https://fe-notes.herokuapp.com/note/edit/${id}`, note)
+    .put(`${url}/edit/${id}`, note)
     .then(response => {
       history.push(`/notes/${response.data._id}`);
     })

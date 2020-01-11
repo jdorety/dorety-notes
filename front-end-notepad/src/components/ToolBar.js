@@ -9,7 +9,7 @@ const ToolBar = props => {
   return (
     <header className="toolbar">
       <nav>
-        <h1 id="nav-logo">Lambda Notes</h1>
+        <h1 id="nav-logo">Dorety Notes</h1>
         <div className="button-container">
           <AddNoteButton history={props.history} />
           <HomeButton history={props.history} />
