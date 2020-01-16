@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dorety Notes",
+  "name": "Notekeeper Client by Jonathan Dorety",
   "icons": [
     {
       "src": "favicon.ico",
