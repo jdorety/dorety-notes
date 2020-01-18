@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TopBar = props => {
+const TopBar = () => {
   const classes = useStyles();
 
   return (
@@ -43,7 +43,7 @@ const TopBar = props => {
   );
 };
 
-ToolBar.propTypes = {
+TopBar.propTypes = {
   history: PropTypes.object,
   location: PropTypes.object,
   match: PropTypes.object
