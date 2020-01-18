@@ -9,25 +9,6 @@ import NoteThumb from "./NoteThumb";
 
 import "../styles/AllNotesList.css";
 
-// class AllNotesList extends Component {
-//   componentDidMount() {
-//     this.props.getList();
-//   }
-
-//   render() {
-//     return (
-//       <div className="main-view">
-//         <h2 className="section-header">Your Notes:</h2>
-//         {this.props.addingNote && <h3>Adding Note</h3>}
-//         <div className="list-wrapper">
-//           {this.props.notes.map(note => {
-//             return <NoteThumb {...note} key={note._id} {...this.props} />;
-//           })}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 
 const useStyles = makeStyles(theme => ({
   root: {
