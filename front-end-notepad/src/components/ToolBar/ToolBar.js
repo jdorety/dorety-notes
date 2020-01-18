@@ -18,26 +18,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TopBar = () => {
+const TopBar = props => {
   const classes = useStyles();
 
   return (
-    // <header className="toolbar">
-    //   <nav>
-    //     <h1 id="nav-logo">Dorety Notes</h1>
-    //     <div className="button-container">
-    //       <AddNoteButton history={props.history} />
-    //       <HomeButton history={props.history} />
-    //     </div>
-    //   </nav>
-    // </header>
     <AppBar position="sticky">
       <ToolBar>
         <Typography variant="h3" className={classes.title}>
           Dorety Notes
         </Typography>
-        <AddNoteButton />
-        <HomeButton />
+        <AddNoteButton {...props} />
+        <HomeButton {...props} />
       </ToolBar>
     </AppBar>
   );
