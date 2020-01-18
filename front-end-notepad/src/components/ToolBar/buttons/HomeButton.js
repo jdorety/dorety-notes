@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getList } from "../actions";
-import { ReactComponent as Home } from "../icons/home.svg";
+import { getList } from "../../../actions";
+import { ReactComponent as Home } from "../../../icons/home.svg";
 
 const HomeButton = props => {
   function clickHandler() {

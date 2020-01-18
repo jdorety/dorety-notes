@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AddNoteButton from "./AddNoteButton";
-import HomeButton from "./HomeButton";
+import AddNoteButton from "./buttons/AddNoteButton";
+import HomeButton from "./buttons/HomeButton";
 
-import "../styles/ToolBar.css";
+import "../../styles/ToolBar.css";
 
 const ToolBar = props => {
   return (

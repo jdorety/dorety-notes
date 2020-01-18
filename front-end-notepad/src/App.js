@@ -3,10 +3,10 @@ import { Route } from "react-router-dom";
 // import axios from "axios";
 
 import AllNotesList from "./components/AllNotesList";
-import ToolBar from "./components/ToolBar";
-import AddNoteForm from "./components/AddNoteForm";
+import ToolBar from "./components/ToolBar/ToolBar";
+import AddNoteForm from "./components/Forms/AddNoteForm";
 import ViewNote from "./components/ViewNote";
-import EditForm from "./components/EditForm";
+import EditForm from "./components/Forms/EditForm";
 
 import "./App.css";
 

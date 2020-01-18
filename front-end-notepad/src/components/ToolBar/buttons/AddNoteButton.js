@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ReactComponent as Add } from "../icons/plus.svg";
+import { ReactComponent as Add } from "../../../icons/plus.svg";
 
 const AddNoteButton = props => {
   //Pushing button routes to add note page
