@@ -12,45 +12,39 @@ const useStyles = makeStyles(theme => ({
     width: 200,
     overflow: "hidden",
     textOverflow: "ellipses"
+  },
+  noteContents: {
+    width: 180,
+    textOverflow: "ellipses",
+    textAlign: "left",
+    fontSize: 14,
+    margin: "5%"
   }
 }));
 
 const NoteThumb = props => {
   const classes = useStyles();
-  // const dispStr =
-  //   props.textBody.length > 55
-  //     ? props.textBody.slice(0, 54) + "..."
-  //     : props.textBody;
-
-  // const dispTitle =
-  //   props.title.length > 35 ? props.title.slice(0, 34) + "..." : props.title;
 
   function clickHandler() {
     props.history.push(`/notes/${props._id}`);
   }
   return (
-    <Typography component="div">
-    <Paper className={classes.paper} onClick={clickHandler}>
-          <Box
-            textAlign="left"
-            fontWeight={800}
-            fontSize={20}
-            m={1}
-            component="div"
-          >
-            {props.title}
-          </Box>
-          <Box
-            className={classes.paper}
-            component="div"
-            textAlign="left"
-            fontSize={14}
-            m={0.5}
-          >
-            {props.textBody}
-          </Box>
-    </Paper>
+    <Paper elevation={3} className={classes.paper} onClick={clickHandler}>
+      <Typography component="div">
+        <Box
+          textAlign="left"
+          fontWeight={800}
+          fontSize={20}
+          m={1}
+          component="div"
+        >
+          {props.title}
+        </Box>
+        <Box className={classes.noteContents} component="div">
+          {props.textBody}
+        </Box>
       </Typography>
+    </Paper>
   );
 };
 
