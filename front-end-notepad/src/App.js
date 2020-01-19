@@ -14,10 +14,12 @@ const App = () => {
   return (
     <div className="App">
       <Route path="/" component={ToolBar} />
-      <Route path="/" exact component={AllNotesList} />
-      <Route path="/notes/:id" exact component={ViewNote} />
-      <Route path="/addnote" exact component={AddNoteForm} />
-      <Route path="/notes/:id/edit" exact component={EditForm} />
+      <div className="app-body">
+        <Route path="/" exact component={AllNotesList} />
+        <Route path="/notes/:id" exact component={ViewNote} />
+        <Route path="/addnote" exact component={AddNoteForm} />
+        <Route path="/notes/:id/edit" exact component={EditForm} />
+      </div>
     </div>
   );
 };

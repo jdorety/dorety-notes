@@ -2,10 +2,11 @@ body {
   background-color: #F4E6CB;
 }
 
-.App {
+.app-body {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 10px;
   /* display: flex;
   border: 1px solid #bbbabb; */
   box-sizing: border-box;
