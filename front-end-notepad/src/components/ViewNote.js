@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Fab from "@material-ui/core/Fab";
+import Edit from "@material-ui/icons/Edit";
+import Delete from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { getNote } from "../actions";
@@ -18,8 +20,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function ViewNote(props) {
-  const [noteId, setId] = useState(props.match.params.id);
   const [showDelete, setDelete] = useState(false);
+  const noteId = props.match.params.id;
 
   const classes = useStyles();
 
@@ -39,7 +41,7 @@ function ViewNote(props) {
   // }
 
   const toggleDelete = () => {
-      setDelete(!showDelete)
+    setDelete(!showDelete);
   };
 
   const editHandler = () => {
@@ -61,10 +63,12 @@ function ViewNote(props) {
 
         <div className="header-wrapper">
           <div className={classes.root}>
-            <Fab onClick={editHandler}>edit</Fab>
-            <button className="edit-buttons" onClick={toggleDelete}>
-              delete
-            </button>
+            <Fab onClick={editHandler} size="small">
+              <Edit></Edit>
+            </Fab>
+            <Fab size="small" onClick={toggleDelete}>
+              <Delete></Delete>
+            </Fab>
           </div>
           <h2 className="note-title">{props.note.title}</h2>
         </div>
