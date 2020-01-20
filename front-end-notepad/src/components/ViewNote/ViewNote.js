@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Fab from "@material-ui/core/Fab";
 import Edit from "@material-ui/icons/Edit";
 import Delete from "@material-ui/icons/Delete";
+import Note from "./Note";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { getNote } from "../../actions";
@@ -12,10 +13,9 @@ import DeleteModal from "../DeleteModal";
 import "../../styles/ViewNote.css";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1)
-    }
+  edit: {
+    justifyContent: "flex-end",
+    maxWidth: theme.spacing(90)
   }
 }));
 
@@ -25,20 +25,9 @@ function ViewNote(props) {
 
   const classes = useStyles();
 
-  // getNote = () => {
-  //   axios
-  //     .get(`https://fe-notes.herokuapp.com/note/get/${noteId}`)
-  //     .then(response => setState({ note: response.data, loading: false }))
-  //     .catch(err => console.log(err));
-  // };
-
   useEffect(() => {
     props.getNote(noteId);
   }, []);
-
-  // componentDidUpdate() {
-  //   getNote();
-  // }
 
   const toggleDelete = () => {
     setDelete(!showDelete);
@@ -61,8 +50,8 @@ function ViewNote(props) {
         {props.error && <h2>{props.error}</h2>}
         {props.loading && <h2>Loading</h2>}
 
-        <div className="header-wrapper">
-          <div className={classes.root}>
+        <Note {...props.note}>
+          <div className={classes.edit}>
             <Fab onClick={editHandler} size="small">
               <Edit fontSize="large"></Edit>
             </Fab>
@@ -70,9 +59,7 @@ function ViewNote(props) {
               <Delete fontSize="large"></Delete>
             </Fab>
           </div>
-          <h2 className="note-title">{props.note.title}</h2>
-        </div>
-        <p className="note-body">{props.note.textBody}</p>
+        </Note>
       </div>
     </div>
   );
