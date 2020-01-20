@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Fab from "@material-ui/core/Fab";
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,74 +17,61 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-class ViewNote extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      noteID: props.match.params.id,
-      showDelete: false
-    };
-  }
+function ViewNote(props) {
+  const [noteId, setId] = useState(props.match.params.id);
+  const [showDelete, setDelete] = useState(false);
 
-  classes = useStyles();
+  const classes = useStyles();
 
   // getNote = () => {
   //   axios
-  //     .get(`https://fe-notes.herokuapp.com/note/get/${this.state.noteID}`)
-  //     .then(response => this.setState({ note: response.data, loading: false }))
+  //     .get(`https://fe-notes.herokuapp.com/note/get/${noteId}`)
+  //     .then(response => setState({ note: response.data, loading: false }))
   //     .catch(err => console.log(err));
   // };
 
-  componentDidMount() {
-    this.props.getNote(this.state.noteID);
-  }
+  useEffect(() => {
+    props.getNote(noteId);
+  }, []);
 
   // componentDidUpdate() {
-  //   this.getNote();
+  //   getNote();
   // }
 
-  toggleDelete = () => {
-    this.setState({
-      showDelete: !this.state.showDelete
-    });
+  const toggleDelete = () => {
+      setDelete(!showDelete)
   };
 
-  editHandler = () => {
-    this.props.history.push(`/notes/${this.state.noteID}/edit`);
+  const editHandler = () => {
+    props.history.push(`/notes/${noteId}/edit`);
   };
 
-  render() {
-    this.classes();
+  return (
+    <div className="main-view">
+      <div className="note-wrapper">
+        {showDelete && (
+          <DeleteModal
+            id={noteId}
+            history={props.history}
+            toggle={toggleDelete}
+          />
+        )}
+        {props.error && <h2>{props.error}</h2>}
+        {props.loading && <h2>Loading</h2>}
 
-    return (
-      <div className="main-view">
-        <div className="note-wrapper">
-          {this.state.showDelete && (
-            <DeleteModal
-              id={this.state.noteID}
-              history={this.props.history}
-              toggle={this.toggleDelete}
-            />
-          )}
-          {this.props.error && <h2>{this.props.error}</h2>}
-          {this.props.loading && <h2>Loading</h2>}
-
-          <div className="header-wrapper">
-            <div className={this.classes.root}>
-              <Fab  onClick={this.editHandler}>
-                edit
-              </Fab>
-              <button className="edit-buttons" onClick={this.toggleDelete}>
-                delete
-              </button>
-            </div>
-            <h2 className="note-title">{this.props.note.title}</h2>
+        <div className="header-wrapper">
+          <div className={classes.root}>
+            <Fab onClick={editHandler}>edit</Fab>
+            <button className="edit-buttons" onClick={toggleDelete}>
+              delete
+            </button>
           </div>
-          <p className="note-body">{this.props.note.textBody}</p>
+          <h2 className="note-title">{props.note.title}</h2>
         </div>
+        <p className="note-body">{props.note.textBody}</p>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mstp = state => {
