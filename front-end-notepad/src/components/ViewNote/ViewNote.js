@@ -5,11 +5,11 @@ import Edit from "@material-ui/icons/Edit";
 import Delete from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
-import { getNote } from "../actions";
+import { getNote } from "../../actions";
 
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../DeleteModal";
 
-import "../styles/ViewNote.css";
+import "../../styles/ViewNote.css";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -64,10 +64,10 @@ function ViewNote(props) {
         <div className="header-wrapper">
           <div className={classes.root}>
             <Fab onClick={editHandler} size="small">
-              <Edit></Edit>
+              <Edit fontSize="large"></Edit>
             </Fab>
             <Fab size="small" onClick={toggleDelete}>
-              <Delete></Delete>
+              <Delete fontSize="large"></Delete>
             </Fab>
           </div>
           <h2 className="note-title">{props.note.title}</h2>
