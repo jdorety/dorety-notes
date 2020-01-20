@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Fab from "@material-ui/core/Fab";
+import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { getNote } from "../actions";
 
 import DeleteModal from "./DeleteModal";
 
 import "../styles/ViewNote.css";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    "& > *": {
+      margin: theme.spacing(1)
+    }
+  }
+}));
 
 class ViewNote extends Component {
   constructor(props) {
@@ -15,6 +25,8 @@ class ViewNote extends Component {
       showDelete: false
     };
   }
+
+  classes = useStyles();
 
   // getNote = () => {
   //   axios
@@ -42,6 +54,8 @@ class ViewNote extends Component {
   };
 
   render() {
+    this.classes();
+
     return (
       <div className="main-view">
         <div className="note-wrapper">
@@ -56,10 +70,10 @@ class ViewNote extends Component {
           {this.props.loading && <h2>Loading</h2>}
 
           <div className="header-wrapper">
-            <div className="modify">
-              <button className="edit-buttons" onClick={this.editHandler}>
+            <div className={this.classes.root}>
+              <Fab  onClick={this.editHandler}>
                 edit
-              </button>
+              </Fab>
               <button className="edit-buttons" onClick={this.toggleDelete}>
                 delete
               </button>
@@ -90,7 +104,4 @@ ViewNote.propTypes = {
   note: PropTypes.object
 };
 
-export default connect(
-  mstp,
-  { getNote }
-)(ViewNote);
+export default connect(mstp, { getNote })(ViewNote);
