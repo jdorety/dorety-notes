@@ -12,8 +12,7 @@ import "../styles/AllNotesList.css";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    justify: "flex-start",
-    spacing: 3
+    justify: "center"
   },
   notes: {
     padding: theme.spacing(1)
@@ -31,8 +30,8 @@ function AllNotesList(props) {
     <Grid container justify="center" className={classes.root}>
       {props.notes.map(note => {
         return (
-          <Grid className={classes.notes} xs item>
-            <NoteThumb {...note} key={note._id} {...props} />
+          <Grid className={classes.notes} key={note._id}  xs item>
+            <NoteThumb {...note} {...props} />
           </Grid>
         );
       })}
