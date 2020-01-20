@@ -1,12 +1,17 @@
-.App {
+body {
+  background-color: #F4E6CB;
+}
+
+.app-body {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  display: flex;
-  border: 1px solid #bbbabb;
+  margin-top: 10px;
+  /* display: flex;
+  border: 1px solid #bbbabb; */
   box-sizing: border-box;
 }
-
+/*
 button {
   background-color: #23b7bc;
   padding: 10px 5%;
@@ -30,7 +35,7 @@ button {
   max-width: 720;
   width: 100%;
   /* padding: 5%; */
-}
+/* }
 
 .note-form {
   display: flex;
@@ -80,4 +85,4 @@ button {
     top: 45%;
     left: 1%;
   }
-}
+} */

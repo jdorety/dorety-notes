@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addNote, getList } from "../actions";
-import "../styles/AddNoteForm.css";
+import { addNote, getList } from "../../actions";
+import "../../styles/AddNoteForm.css";
 
 class AddNoteForm extends Component {
   constructor() {

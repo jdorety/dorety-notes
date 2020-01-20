@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { getNote, editNote } from "../actions";
+import { getNote, editNote } from "../../actions";
 
-import "../styles/EditForm.css";
+import "../../styles/EditForm.css";
 
 class EditForm extends Component {
   constructor(props) {

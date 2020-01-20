@@ -1,30 +1,43 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import PropTypes from "prop-types";
 import { getList } from "../actions";
 
 import NoteThumb from "./NoteThumb";
 
 import "../styles/AllNotesList.css";
 
-class AllNotesList extends Component {
-  componentDidMount() {
-    this.props.getList();
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+    justify: "flex-start",
+    spacing: 3
+  },
+  notes: {
+    padding: theme.spacing(1)
   }
+}));
 
-  render() {
-    return (
-      <div className="main-view">
-        <h2 className="section-header">Your Notes:</h2>
-        {this.props.addingNote && <h3>Adding Note</h3>}
-        <div className="list-wrapper">
-          {this.props.notes.map(note => {
-            return <NoteThumb {...note} key={note._id} {...this.props} />;
-          })}
-        </div>
-      </div>
-    );
-  }
+function AllNotesList(props) {
+  const classes = useStyles();
+
+  useEffect(() => {
+    props.getList();
+  }, []);
+
+  return (
+    <Grid container justify="center" className={classes.root}>
+      {props.notes.map(note => {
+        return (
+          <Grid className={classes.notes} xs item>
+            <NoteThumb {...note} key={note._id} {...props} />
+          </Grid>
+        );
+      })}
+    </Grid>
+  );
 }
 
 const mst3k = state => {
@@ -42,7 +55,4 @@ AllNotesList.propTypes = {
   notes: PropTypes.array
 };
 
-export default connect(
-  mst3k,
-  { getList }
-)(AllNotesList);
+export default connect(mst3k, { getList })(AllNotesList);
