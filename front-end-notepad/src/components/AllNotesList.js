@@ -9,7 +9,6 @@ import NoteThumb from "./NoteThumb";
 
 import "../styles/AllNotesList.css";
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -17,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     spacing: 3
   },
   notes: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(1)
   }
 }));
 
@@ -26,7 +25,7 @@ function AllNotesList(props) {
 
   useEffect(() => {
     props.getList();
-  });
+  }, []);
 
   return (
     <Grid container justify="center" className={classes.root}>
